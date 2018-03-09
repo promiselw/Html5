@@ -2,14 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>动态进度条</title>
 </head>
 <style>
+    body{
+        background-color: #251B0A;
+    }
     .pro{
        -webkit-appearance: none;
     }
     .pro::-webkit-progress-bar{
-        background-color: aqua;
+        background-color: dimgrey;
         border-radius: 4px;
         height: 30px;
     }
@@ -25,12 +28,13 @@
         left: 50%;
         margin-top: -80px;
         margin-left: -80px;
+        color: #ffffff;
     }
 </style>
 <body>
    <div class="progress-bar">
-       <progress class="pro" value="10" max="100"></progress>
-       <p class="message"></p>
+       <progress class="pro" value="0" max="100"></progress>
+       <p class="message">Loading...</p>
    </div>
 
 </body>
@@ -45,7 +49,7 @@
 
       var Prun = setInterval(function() {
           progressRun()
-      },1000);
+      },2000);
 
       function progressRun() {
 
@@ -54,7 +58,7 @@
 
         var interPro = setInterval(function() {
           $progress[0].value += offset;
-          console.log($progress[0].value);
+          //console.log($progress[0].value);
           $('.message')[0].innerHTML = 'Loading....' + parseInt($progress[0].value) + '%';
           if($progress[0].value === 100){
             $('.message')[0].innerHTML = 'Finished';

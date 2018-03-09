@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul id="list"></ul>
+<div id="info"></div>
+<script>
+    window.onload = function() {
+      var data = {
+        1:{
+          name:'张三1',
+          age:18
+        },
+        2:{
+          name:'张三2',
+          age:19
+        }
+      };
+      var lists = [];
+      for(var i in data){
+        console.log(data[i]);
+        var Domlist = document.getElementById('list');
+        lists[i] = '<li id="'+ i +'" data-name="'+data[i].name+'">'+data[i].name+'</li>' +'<li>'+data[i].age+'</li>';
+
+      }
+      console.log(lists);
+      Domlist.innerHTML = lists;
+      for(var num in data){
+        var Dname = document.getElementById(num);
+        console.log(Dname.getAttribute('data-name'));
+      }
+    }
+</script>
+</body>
+</html>
