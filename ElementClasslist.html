@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<style>
+   .mystyle{
+       width: 800px;
+       margin: 0 auto;
+   }
+</style>
+<body>
+<div class="container">
+    <nav class="navbar navbar-default mystyle">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Brand</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-6">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#">Link</a></li>
+                    <li><a href="#">Link</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+<script src="js/jquery-1.10.1.js"></script>
+<script>
+
+    //原生js的切换
+    var lis = document.querySelectorAll('.nav>li');
+
+    for(var i=0;i<lis.length;i++){
+      lis[i].addEventListener('click',function(e) {
+        for(var i=0;i<lis.length;i++){
+          lis[i].classList.remove('active');
+        }
+
+//        var exist = this.classList.contains('active');
+//        this.classList.toggle('active',!exist);
+
+        this.classList.add('active');
+        console.log(this.classList);
+        e.preventDefault();   //阻止默认事件发生
+      })
+    }
+
+    //jQuery的导航切换
+//  $(function() {
+//    var $lis = $('.nav>li');
+//    $lis.on('click',function() {
+//      $lis.removeClass('active');
+//      $(this).addClass('active');
+//    })
+//  })
+</script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>data attr</title>
+</head>
+<style>
+    #info{
+        height: 500px;
+        border: 1px solid;
+    }
+</style>
+<body>
+<div class="tabs">
+    <ul>
+        <li data-target="panel-news">新闻</li>
+        <li data-target="panel-bagua">八卦</li>
+        <li data-target="panel-sport">体育</li>
+    </ul>
+    <ul id="info">
+
+    </ul>
+</div>
+<script src="js/jquery-1.10.1.js"></script>
+<script>
+  (function() {
+    // 一个单独作用域，避免污染
+    var source = [
+      {
+        message:'news',
+        time:'2018-3-1',
+        content:'新闻'
+      },
+      {
+        message:'bagua',
+        time:'2018-3-2',
+        content:'八卦新闻'
+      },
+      {
+        message:'sport',
+        time:'2018-3-3',
+        content:'体育新闻'
+      },
+      {
+        message:'sport',
+        time:'2018-3-3',
+        content:'体育新闻'
+      }
+    ]
+
+    //console.log(JSON.stringify(source));
+
+    var $lis = $('.tabs>ul>li');
+    //var content = new Array();
+    var content = new Object();
+    //console.log(source.length);
+    for(var i=0;i<source.length;i++){
+      //console.log(source[i].time);
+      content[i] = '<li>'+ source[i].message+'</li>'+'<li>'+source[i].time+'</li>' +'<li>'+source[i].content+'</li>';
+    }
+
+    console.log(content);
+    //方法1遍历
+//    for(var id in content){
+//      $('#info').append(content[id]);
+//    }
+
+
+    //方法2遍历
+    $.each(content,function(key,value) {
+      $('#info').append(value);
+    })
+
+    //var test = JSON.stringify(content).replace(/,/g,'');
+    //console.log(test);
+//    console.log(content[0]);
+//    for(let t=0;t<content.length;t++){
+//      console.log(t);
+//      console.log(content[t]);
+//      $('#info').append(content[t]);
+//    }
+
+//      for(var t=0;t<content.length;t++){
+//        console.log(t);
+//        $('#info').append(content[t]);
+//      }
+
+
+  })();
+</script>
+</body>
+
+</html>
